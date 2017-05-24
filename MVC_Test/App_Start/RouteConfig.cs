@@ -14,14 +14,29 @@ namespace MVC_Test
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                "Employee",
+ "{controller}/{action}/{name}",
+ new
+ {
+     controller = "Employee",
+     action = "Search",
+     name =
+         UrlParameter.Optional
+ });
+
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
+
             routes.MapRoute(
             name: "Process",
             url: "Process/{action}/{id}",
@@ -35,7 +50,7 @@ namespace MVC_Test
             );
 
 
-           
+
         }
     }
 }
