@@ -16,6 +16,20 @@ namespace MVC_Test
 
 
             routes.MapRoute(
+                "Customer",
+ "{controller}/{action}/{name}",
+ new
+ {
+     controller = "Customer",
+     action = "GetAllCustomers",
+     name =
+         UrlParameter.Optional
+ });
+            
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+
+            routes.MapRoute(
                 "Employee",
  "{controller}/{action}/{name}",
  new
